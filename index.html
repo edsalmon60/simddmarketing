@@ -1,303 +1,3 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SIMDD Marketing</title>
-    <meta
-      name="description"
-      content="SIMDD Marketing provides advertising, SMS blasting, SIM supply, tracking links, and Truecaller marketing."
-    />
-    <style>
-      :root {
-        --ink: #0a1224;
-        --navy: #101b35;
-        --muted: #667085;
-        --line: rgba(16, 27, 53, 0.12);
-        --gold: #d6a94a;
-        --gold-bright: #ffe7a4;
-        --blue: #27b7ff;
-        --blue-soft: rgba(39, 183, 255, 0.2);
-        --panel: rgba(255, 255, 255, 0.72);
-        --panel-strong: rgba(255, 255, 255, 0.9);
-        --shadow: 0 24px 70px rgba(16, 27, 53, 0.14);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        min-height: 100vh;
-        margin: 0;
-        color: var(--ink);
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
-        background:
-          radial-gradient(circle at 50% 0%, rgba(255, 231, 164, 0.52), transparent 28rem),
-          radial-gradient(circle at 96% 16%, rgba(39, 183, 255, 0.24), transparent 20rem),
-          linear-gradient(145deg, #fff8e9 0%, #f8fbff 44%, #edf4ff 100%);
-        letter-spacing: 0;
-      }
-
-      body::before {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-        content: "";
-        background-image:
-          linear-gradient(rgba(16, 27, 53, 0.045) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(16, 27, 53, 0.045) 1px, transparent 1px);
-        background-size: 44px 44px;
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.58), transparent 68%);
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .shell {
-        width: min(100%, 560px);
-        min-height: 100vh;
-        margin: 0 auto;
-        padding: 0 14px 20px;
-        display: flex;
-        align-items: flex-start;
-      }
-
-      .page {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.74);
-        border-radius: 30px;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.48)),
-          rgba(255, 255, 255, 0.6);
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(24px);
-      }
-
-      .page::before,
-      .page::after {
-        position: absolute;
-        z-index: 0;
-        content: "";
-        border-radius: 999px;
-        filter: blur(3px);
-      }
-
-      .page::before {
-        width: 170px;
-        height: 170px;
-        right: -64px;
-        top: -58px;
-        background: rgba(39, 183, 255, 0.18);
-      }
-
-      .page::after {
-        width: 210px;
-        height: 210px;
-        left: -96px;
-        bottom: -92px;
-        background: rgba(214, 169, 74, 0.2);
-      }
-
-      .hero,
-      .services,
-      .cta {
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero {
-        padding: 43px 18px 18px;
-        text-align: center;
-      }
-
-      .logo {
-        display: block;
-        width: min(100%, 280px);
-        height: auto;
-        margin: 0 auto 5px;
-        filter: drop-shadow(0 18px 34px rgba(16, 27, 53, 0.2))
-          drop-shadow(0 0 18px rgba(39, 183, 255, 0.18));
-      }
-
-      .tagline {
-        margin: 0 auto;
-        color: #344054;
-        font-size: 0.98rem;
-        font-weight: 650;
-      }
-
-      .primary-action,
-      .cta-action {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        min-height: 54px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 231, 164, 0.66);
-        background:
-          linear-gradient(135deg, var(--gold-bright), var(--gold) 46%, #a96d15),
-          #d6a94a;
-        color: #101014;
-        box-shadow:
-          0 16px 36px rgba(164, 111, 23, 0.28),
-          0 0 34px rgba(39, 183, 255, 0.13);
-        font-size: 1rem;
-        font-weight: 800;
-        transition:
-          transform 180ms ease,
-          box-shadow 180ms ease,
-          filter 180ms ease;
-      }
-
-      .primary-action {
-        margin-top: 18px;
-        padding: 0 24px;
-      }
-
-      .whatsapp-cta {
-        animation: whatsappBreathGlow 3s ease-in-out infinite;
-        will-change: transform, box-shadow;
-      }
-
-      @keyframes whatsappBreathGlow {
-        0%,
-        100% {
-          transform: scale(1);
-          box-shadow:
-            0 8px 22px rgba(212, 164, 44, 0.25),
-            0 0 34px rgba(39, 183, 255, 0.13);
-        }
-
-        50% {
-          transform: scale(1.04);
-          box-shadow:
-            0 14px 36px rgba(212, 164, 44, 0.48),
-            0 0 40px rgba(39, 183, 255, 0.18);
-        }
-      }
-
-      .primary-action:hover,
-      .cta-action:hover,
-      .service-card:hover {
-        transform: translateY(-2px);
-      }
-
-      .primary-action:hover,
-      .cta-action:hover {
-        filter: saturate(1.05);
-        box-shadow:
-          0 18px 42px rgba(164, 111, 23, 0.34),
-          0 0 40px rgba(39, 183, 255, 0.19);
-      }
-
-      .whatsapp-cta:hover {
-        animation-play-state: paused;
-        transform: scale(1.04);
-        box-shadow:
-          0 14px 36px rgba(212, 164, 44, 0.55),
-          0 0 40px rgba(39, 183, 255, 0.18);
-      }
-
-      .services {
-        display: grid;
-        gap: 10px;
-        padding: 0 18px 18px;
-      }
-
-      .service-card {
-        min-height: 68px;
-        display: grid;
-        grid-template-columns: 48px 1fr 22px;
-        align-items: center;
-        column-gap: 20px;
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        background:
-          linear-gradient(180deg, var(--panel-strong), var(--panel)),
-          rgba(255, 255, 255, 0.74);
-        box-shadow: 0 12px 30px rgba(16, 27, 53, 0.08);
-        transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          box-shadow 180ms ease,
-          background 180ms ease;
-      }
-
-      .service-card:hover {
-        border-color: rgba(39, 183, 255, 0.38);
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 253, 255, 0.82)),
-          rgba(255, 255, 255, 0.86);
-        box-shadow:
-          0 16px 38px rgba(16, 27, 53, 0.12),
-          0 0 28px var(--blue-soft);
-      }
-
-      .icon {
-        width: 48px;
-        height: 48px;
-        margin-left: 10px;
-        display: grid;
-        place-items: center;
-        border-radius: 16px;
-        background:
-          linear-gradient(145deg, rgba(16, 27, 53, 0.96), rgba(26, 42, 78, 0.92)),
-          var(--navy);
-        color: var(--gold-bright);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.16),
-          0 0 20px rgba(39, 183, 255, 0.14);
-      }
-
-      .icon svg,
-      .arrow,
-      .button-icon {
-        width: 21px;
-        height: 21px;
-        stroke: currentColor;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        fill: none;
-      }
-
-      .button-icon {
-        transform-origin: center;
-        animation: whatsapp-heartbeat 2.6s ease-in-out infinite;
-      }
-
-      @keyframes whatsapp-heartbeat {
-        0%,
-        72%,
-        100% {
-          transform: scale(1);
-        }
-
-        80% {
-          transform: scale(1.1);
-        }
-
-        88% {
-          transform: scale(0.98);
-        }
-
-        94% {
-          transform: scale(1.04);
-        }
-      }
-
-      .service-title {
-        min-width: 0;
-        font-size: 0.98rem;
         line-height: 1.25;
         font-weight: 760;
       }
@@ -400,7 +100,7 @@
           <p class="tagline">Advertising &bull; SMS &bull; SIM Cards</p>
           <a
             class="primary-action whatsapp-cta"
-            href="https://wa.me/601116180866?text=Hi%20SIMDD%20Marketing,%20I%20would%20like%20more%20information"
+            href="https://wa.me/601128251488"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contact SIMDD Marketing on WhatsApp"
@@ -414,7 +114,7 @@
         </section>
 
         <section class="services" aria-label="Services">
-          <a class="service-card" href="https://wa.me/601116180866?text=Hi,%20I%27m%20interested%20in%20SMS%20Blasting" target="_blank" rel="noopener noreferrer">
+          <a class="service-card" href="https://wa.me/601128251488" target="_blank" rel="noopener noreferrer">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2" /><path d="M11 17h2" /></svg>
             </span>
@@ -422,7 +122,7 @@
             <svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
           </a>
 
-          <a class="service-card" href="https://wa.me/601116180866?text=Hi,%20I%27m%20interested%20in%20Facebook%20%26%20TikTok%20Advertising" target="_blank" rel="noopener noreferrer">
+          <a class="service-card" href="https://wa.me/601128251488" target="_blank" rel="noopener noreferrer">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /><path d="M12 2v4M12 18v4M2 12h4M18 12h4" /></svg>
             </span>
@@ -430,7 +130,7 @@
             <svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
           </a>
 
-          <a class="service-card" href="https://wa.me/601116180866?text=Hi,%20I%27m%20interested%20in%20SIM%20Card%20Supply" target="_blank" rel="noopener noreferrer">
+          <a class="service-card" href="https://wa.me/601128251488" target="_blank" rel="noopener noreferrer">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M8 3h6l4 4v14H8z" /><path d="M14 3v5h4M10 14h6M10 17h4" /></svg>
             </span>
@@ -438,7 +138,7 @@
             <svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
           </a>
 
-          <a class="service-card" href="https://wa.me/601116180866?text=Hi,%20I%27m%20interested%20in%20IP%20Link%20%26%20Tracking" target="_blank" rel="noopener noreferrer">
+          <a class="service-card" href="https://wa.me/601128251488" target="_blank" rel="noopener noreferrer">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1.1l2-2a5 5 0 0 0-7-7l-1.2 1.2" /><path d="M14 11a5 5 0 0 0-7.1-.1l-2 2a5 5 0 0 0 7 7l1.2-1.2" /></svg>
             </span>
@@ -446,7 +146,7 @@
             <svg class="arrow" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
           </a>
 
-          <a class="service-card" href="https://wa.me/601116180866?text=Hi,%20I%27m%20interested%20in%20Truecaller%20Marketing" target="_blank" rel="noopener noreferrer">
+          <a class="service-card" href="https://wa.me/601128251488" target="_blank" rel="noopener noreferrer">
             <span class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.5 1.8L7.8 9.5a16 16 0 0 0 6.7 6.7l1.2-1.3a2 2 0 0 1 1.8-.5l2.8.5a2 2 0 0 1 1.7 2Z" /></svg>
             </span>
@@ -459,7 +159,7 @@
           <h2>Ready to grow your business?</h2>
           <a
             class="cta-action"
-            href="https://wa.me/601116180866?text=Hi%20SIMDD%20Marketing,%20I%20would%20like%20more%20information"
+            href="https://wa.me/601128251488"
             target="_blank"
             rel="noopener noreferrer"
           >
